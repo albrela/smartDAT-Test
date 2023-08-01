@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\..\Docu\Parameter.cid.xsd">
+  <UserLevel/>
+  <IFD>
+    <CID>
+      <UserTypes>
+        <TypeDefinition Description="TODO" Name="ErrStructType">
+          <Struct>
+            <BasicType Name="ErrorId">
+              <UDInt DefaultValue="67109386"/>
+            </BasicType>
+          </Struct>
+        </TypeDefinition>
+      </UserTypes>
+      <Block Name="smartDAT_SIM">
+        <Group Name="General">
+          <Variable Name="ASampleIntegerVar" WriteAccessRef="Run" VirtualMemoryRef="ApplicationParameters">
+            <BasicType>
+              <UInt DefaultValue="7" MaxValue="99" MinValue="0"/>
+            </BasicType>
+          </Variable>
+          <Variable Name="ASampleFloatVar" WriteAccessRef="Run" VirtualMemoryRef="ApplicationParameters">
+            <BasicType>
+              <Real DefaultValue="30" MaxValue="1000" MinValue="0"/>
+            </BasicType>
+          </Variable>
+          <Variable Name="ASampleStringVar" WriteAccessRef="Run" VirtualMemoryRef="ApplicationParameters">
+            <BasicType>
+              <String FixedLength="False" Length="80" DefaultValue="A sample string parameter"/>
+            </BasicType>
+          </Variable>
+          <Variable Name="ASampleStructVar" WriteAccessRef="Run" VirtualMemoryRef="ApplicationParameters">
+            <Struct>
+              <BasicType Name="MyBool">
+                <Bool DefaultValue="True"/>
+              </BasicType>
+              <BasicType Name="MyInt">
+                <UDInt DefaultValue="10"/>
+              </BasicType>
+            </Struct>
+          </Variable>
+          <Variable Name="newVariable0" VirtualMemoryRef="ApplicationParameters">
+            <BasicType>
+              <UInt DefaultValue="7"/>
+            </BasicType>
+          </Variable>
+          <Variable Name="newBool" VirtualMemoryRef="ApplicationParameters">
+            <BasicType>
+              <Bool/>
+            </BasicType>
+          </Variable>
+        </Group>
+      </Block>
+      <Block Description="Different error histories for different device families" Name="ErrorHistory">
+        <Group Description="LMS1[015]x_FieldEval" Name="LMS10x">
+          <Variable Name="EMsgFatal" VirtualMemoryRef="ApplicationParameters">
+            <Array Length="10">
+              <UserType TypeName="ErrStructType"/>
+            </Array>
+          </Variable>
+        </Group>
+      </Block>
+    </CID>
+  </IFD>
+  <Hardware>
+    <VirtualMemory Name="ApplicationParameters"/>
+  </Hardware>
+</Device>

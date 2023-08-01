@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // https://luaunit.readthedocs.io/en/latest/#scientific-computing-and-luaunit
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "smartDAT-Test",
+            "type": "shell",
+            "command": "lua5.3",
+            "args": [
+                "main.lua",
+                "-f",
+                "-o",
+                "tap",
+                "--verbose"
+            ],
+            "group": "build"
+        }
+    ]
+  }
